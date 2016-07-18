@@ -117,7 +117,8 @@ main(int argc, char *argv[])
     /* Load currencies file to memory. */
     readError = false;
     fileSize = 0;
-    if(stat(filePath, &cacheStat) == 0) {
+    statReturn = stat(filePath, &cacheStat);
+    if(statReturn == 0) {
         fileSize = cacheStat.st_size;
     }
     f = fopen(filePath, "r");
@@ -140,7 +141,7 @@ main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    /* Extract the rates */
+    /* Extract the rates. */
     rates = json_tokener_parse(json);
     json_object_object_get_ex(rates, "rates", &rates);
 
