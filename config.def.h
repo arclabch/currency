@@ -38,7 +38,7 @@
 
 /*
  * Where to store the rates file. Relative to $HOME directory.
- * The default value below equals to ~/.cache/currencies.json.
+ * The default value below equals to ~/.cache/currency.db.
  */
 
 #define FILE_NAME ".cache/currency.db"
